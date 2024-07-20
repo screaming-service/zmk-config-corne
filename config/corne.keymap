@@ -46,6 +46,11 @@
             bindings = <&bootloader>;
             key-positions = <28 29>;
         };
+
+        com7 {
+            bindings = <&kp TAB>;
+            key-positions = <26 25>;
+        };
     };
 
     keymap {
