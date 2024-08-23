@@ -24,7 +24,7 @@
 
         combo4 {
             bindings = <&kp ESCAPE>;
-            key-positions = <1 0>;
+            key-positions = <16 28>;
         };
 
         combo5 {
@@ -61,7 +61,7 @@
             bindings = <
 &kp ESCAPE      &kp Q  &kp W  &kp E      &kp R        &kp T                 &kp Y        &kp U           &kp I      &kp O    &kp P     &kp BACKSPACE
 &kp LALT        &kp A  &kp S  &kp D      &kp F        &kp G                 &kp H        &kp J           &kp K      &kp L    &kp SEMI  &kp ENTER
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+&kp LEFT_SHIFT  &mt LALT Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
                               &lt 3 SQT  &lt 2 SPACE  &mt LCTRL LEFT_WIN    &lt 1 SPACE  &kp LEFT_SHIFT  &mt LGUI SQT
             >;
         };
