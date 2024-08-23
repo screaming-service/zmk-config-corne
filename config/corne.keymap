@@ -10,47 +10,51 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+    chosen { zmk,matrix_transform = &five_column_transform; };
+};
+
+/ {
     combos {
         compatible = "zmk,combos";
 
         combo1 {
             bindings = <&kp BACKSPACE>;
-            key-positions = <9 10>;
+            key-positions = <9 8>;
         };
 
         combo2 {
             bindings = <&kp ENTER>;
-            key-positions = <21 22>;
+            key-positions = <18 19>;
         };
 
         combo4 {
             bindings = <&kp ESCAPE>;
-            key-positions = <16 28>;
+            key-positions = <13 23>;
         };
 
         combo5 {
             bindings = <&kp EQUAL>;
-            key-positions = <21 20>;
+            key-positions = <18 17>;
         };
 
         combo6 {
             bindings = <&kp MINUS>;
-            key-positions = <20 19>;
+            key-positions = <17 16>;
         };
 
         cmb5 {
             bindings = <&kp CAPS>;
-            key-positions = <13 14>;
+            key-positions = <10 11>;
         };
 
         com6 {
             bindings = <&bootloader>;
-            key-positions = <28 29>;
+            key-positions = <23 24>;
         };
 
         com7 {
             bindings = <&kp TAB>;
-            key-positions = <26 25>;
+            key-positions = <21 20>;
         };
     };
 
@@ -60,36 +64,36 @@
         mac_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESCAPE      &kp Q  &kp W  &kp E      &kp R        &kp T                 &kp Y        &kp U           &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp LALT        &kp A  &kp S  &kp D      &kp F        &kp G                 &kp H        &kp J           &kp K      &kp L    &kp SEMI  &kp ENTER
-&kp LEFT_SHIFT  &mt LALT Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+&kp Q  &kp W  &kp E      &kp R        &kp T                 &kp Y        &kp U           &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D      &kp F        &kp G                 &kp H        &kp J           &kp K      &kp L    &kp SEMI
+&mt LALT Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp FSLH
                               &lt 3 SQT  &lt 2 SPACE  &mt LCTRL LEFT_WIN    &lt 1 SPACE  &kp LEFT_SHIFT  &mt LGUI SQT
             >;
         };
 
         win_layer {
             bindings = <
-&none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6       &kp N7  &kp N8  &kp N9      &kp N0  &none
-&none  &none   &none   &none   &none   &none     &none        &none   &none   &none       &none   &none
-&none  &none   &none   &none   &none   &none     &bootloader  &none   &none   &kp PERIOD  &none   &none
+&kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6       &kp N7  &kp N8  &kp N9      &kp N0
+&none   &none   &none   &none   &none     &none        &none   &none   &none       &none
+&none   &none   &none   &none   &none     &bootloader  &none   &none   &kp PERIOD  &none
                        &none   &none   &none     &none        &none   &none
             >;
         };
 
         layer_1 {
             bindings = <
-&none  &kp LS(N1)    &kp LS(N2)      &kp LS(N3)    &kp LS(N4)    &kp LS(N5)     &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)  &none
-&none  &none         &kp LEFT_ARROW  &kp DEL       &kp RIGHT     &bt BT_CLR     &none       &none       &none       &none       &none       &none
-&none  &bt BT_SEL 3  &bt BT_SEL 2    &bt BT_SEL 1  &bt BT_SEL 0  &bootloader    &none       &none       &none       &trans      &none       &none
+&kp LS(N1)    &kp LS(N2)      &kp LS(N3)    &kp LS(N4)    &kp LS(N5)     &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)
+&none         &kp LEFT_ARROW  &kp DEL       &kp RIGHT     &bt BT_CLR     &none       &none       &none       &none       &none
+&bt BT_SEL 3  &bt BT_SEL 2    &bt BT_SEL 1  &bt BT_SEL 0  &bootloader    &none       &none       &none       &trans      &none
                                      &none         &none         &none          &none       &none       &none
             >;
         };
 
         layer_2 {
             bindings = <
-&none  &none     &kp UP_ARROW    &none      &none  &none    &none  &none  &none  &none  &none  &none
-&none  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none  &none    &mkp RCLK  &mkp LCLK  &none  &none  &none  &none
-&none  &none     &none           &none      &none  &none    &none  &none  &none  &none  &none  &none
+&none     &kp UP_ARROW    &none      &none  &none    &none  &none  &none  &none  &none
+&kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &none  &none    &mkp RCLK  &mkp LCLK  &none  &none  &none
+&none     &none           &none      &none  &none    &none  &none  &none  &none  &none
                                  &none      &none  &none    &none  &none  &none
             >;
         };
