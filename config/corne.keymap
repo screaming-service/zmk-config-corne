@@ -456,40 +456,43 @@
     keymap {
         compatible = "zmk,keymap";
 
-        mac_layer {
-            display-name = "QWERTY";
+        base {
+            display-name = "Base";
             bindings = <
 &kp Q  &kp W  &kp E      &kp R        &kp T                 &kp Y        &kp U           &kp I      &kp O    &kp P
 &kp A  &kp S  &kp D      &kp F        &kp G                 &kp H        &kp J           &kp K      &kp L    &kp SEMI
-&mt LALT Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp FSLH
-                              &lt 3 SQT  &lt 2 SPACE  &mt LCTRL LEFT_WIN    &lt 1 SPACE  &kp LEFT_SHIFT  &mt LGUI SQT
+&kp Z  &kp X  &kp C      &kp V        &kp B                 &kp N        &kp M           &kp COMMA  &kp DOT  &kp GRAVE
+                     &sk LCTRL  &sl 1     &sk LGUI          &td_spc_eq   &sl 2           &none
             >;
         };
 
-        win_layer {
+        symbol {
+            display-name = "Sym";
             bindings = <
-&kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6       &kp N7  &kp N8  &kp N9      &kp N0
-&none   &none   &none   &none   &none     &none        &none   &none   &none       &none
-&none   &none   &none   &none   &none     &bootloader  &none   &none   &kp PERIOD  &none
-                       &none   &none   &none     &none        &none   &none
+&trans     &td_star    &td_dqt       &kp LPAR      &kp RPAR      AS(BSLH)   AS(N7)     AS(N8)     AS(N9)     AS(N0)
+&trans     &td_amps    &td_under     &kp LBKT      &kp RBKT      AS(SQT)    AS(N4)     AS(N5)     AS(N6)     AS(MINUS)
+&trans     &td_pipe    &td_plus      &kp LBRC      &kp RBRC      AS(FSLH)   AS(N1)     AS(N2)     AS(N3)     AS(EQUAL)
+                       &trans        &tog 1        &trans        &trans     &mo 3        &none
             >;
         };
 
-        layer_1 {
+        nav {
+            display-name = "Nav";
             bindings = <
-&kp LS(N1)    &kp LS(N2)      &kp LS(N3)    &kp LS(N4)    &kp LS(N5)     &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)
-&none         &kp LEFT_ARROW  &kp DEL       &kp RIGHT     &bt BT_CLR     &none       &none       &none       &none       &none
-&bt BT_SEL 3  &bt BT_SEL 2    &bt BT_SEL 1  &bt BT_SEL 0  &bootloader    &none       &none       &none       &trans      &none
-                                     &none         &none         &none          &none       &none       &none
+&kp F7  &kp F8   &kp F9        &ht_r 0 0      &none        &kp F10   &kp F11      &kp F12   &none      &none
+&kp F4  &kp F5   &kp F6        &ht_f 0 0      &ht_g 0 0    &kp LEFT  &kp DOWN     &kp UP    &kp RIGHT  &trans
+&kp F1  &kp F2   &kp F3        &ht_v 0 0      &none        &kp HOME  &kp PG_DN    &kp PG_UP &kp END    &none
+                 &trans         &mo 3        &trans        &trans    &tog 2       &none
             >;
         };
 
-        layer_2 {
+        mouse {
+            display-name = "Mouse";
             bindings = <
-&none     &kp UP_ARROW    &none      &none      &none          &none          &none          &none          &none              &none
-&kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &mkp RCLK  &mkp LCLK      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT    &none
-&none     &none           &none      &none      &none          &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP   &msc MOVE_RIGHT    &none
-                                 &none      &none  &none        &none  &none  &none
+&none        &trans    &none      &none      &none          &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none              &tdp0
+&bootloader  &none     &none      &mkp LCLK  &mkp RCLK      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT    &bootloader
+&none        &none     &none      &none      &none          &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP   &msc MOVE_RIGHT    &none
+                       &none      &mkp LCLK  &mkp RCLK      &none  &none  &none
             >;
         };
     };
