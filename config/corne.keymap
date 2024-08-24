@@ -313,7 +313,7 @@
 
     combos {
         compatible = "zmk,combos";
-
+        // Might be worth trying
         combo1 {
             bindings = <&kp BACKSPACE>;
             key-positions = <9 8>;
@@ -344,14 +344,112 @@
             key-positions = <10 11>;
         };
 
-        com6 {
-            bindings = <&bootloader>;
-            key-positions = <23 24>;
-        };
-
         com7 {
             bindings = <&kp TAB>;
             key-positions = <21 20>;
+        };
+        // Copied from charybdis
+
+        // Tmux
+        combo_ctrl_b {
+            timeout-ms = <25>;
+            key-positions = <12 2>; // D, E
+            bindings = <&kp LC(B)>;
+        };
+
+        combo_left_click {
+            timeout-ms = <25>;
+            key-positions = <12 13>; // D, F
+            bindings = <&mkp LCLK>;
+        };
+        combo_right_click {
+            timeout-ms = <25>;
+            key-positions = <13 14>; // F, G
+            bindings = <&mkp RCLK>;
+        };
+        combo_tog_3 {
+            timeout-ms = <25>;
+            key-positions = <11 21>; // S, X
+            bindings = <&tog 3>; // ?tdml
+        };
+
+
+        // Enter/ESC ...
+        combo_enter {
+            timeout-ms = <25>;
+            key-positions = <7 17>; // I, K
+            bindings = <&kp ENTER>;
+        };
+        combo_shift_enter {
+            timeout-ms = <25>;
+            key-positions = <17 27>; // K, COMMA
+            bindings = <&kp LS(ENTER)>;
+        };
+        combo_tab {
+            timeout-ms = <25>;
+            key-positions = <16 26>; // J, M
+            bindings = <&kp TAB>;
+        };
+        combo_caps_word {
+            timeout-ms = <25>;
+            key-positions = <15 25>; // H, N
+            bindings = <&caps_word>;
+        };
+        combo_esc_1 {
+            timeout-ms = <25>;
+            key-positions = <13 23>; // F, V
+            bindings = <&kp ESC>;
+        };
+        combo_esc_2 {
+            timeout-ms = <25>;
+            key-positions = <11 18>; // S, L
+            bindings = <&kp ESC>;
+        };
+        combo_bspc {
+            timeout-ms = <25>;
+            key-positions = <3 13>; // R, F
+            bindings = <&kp BSPC>;
+        };
+        combo_del {
+            timeout-ms = <25>;
+            key-positions = <4 14>; // T, G
+            bindings = <&kp DEL>;
+        };
+
+        // Lock screen (MacOS)
+        combo_cmd_ctrl_q {
+            timeout-ms = <25>;
+            key-positions = <13 23 14 24>; // F, V, G, B
+            bindings = <&kp LG(LC(Q))>;
+        };
+
+        combo_alt_space {
+            timeout-ms = <25>;
+            key-positions = <16 17>; // J, K
+            bindings = <&kp LA(SPACE)>;
+        };
+
+        combo_ctrl_alt_space {
+            timeout-ms = <25>;
+            key-positions = <14 24>; // G, B
+            bindings = <&kp LA(LC(SPACE))>;
+        };
+
+        combo_ctrl_alt_shift_space {
+            timeout-ms = <25>;
+            key-positions = <18 28>; // L, .(DOT)
+            bindings = <&kp LA(LC(LS(SPACE)))>;
+        };
+
+        combo_private_seq_1 {
+            timeout-ms = <25>;
+            key-positions = <15 16 25 26>; // H, J, N, M
+            bindings = <&pri1>;
+        };
+        combo_alt_backspace {
+            timeout-ms = <40>;
+            key-positions = <10 19>; // A, ;
+            bindings = <&kp LA(BSPC)>;
         };
     };
 
