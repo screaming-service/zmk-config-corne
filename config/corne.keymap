@@ -9,6 +9,33 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
+#define SPC_WRAP(macro_name, content) \
+        macro_name: macro_name { \
+            compatible = "zmk,behavior-macro"; \
+            #binding-cells = <0>; \
+            wait-ms = <25>; \
+            tap-ms = <25>; \
+            bindings = <&macro_tap &kp SPACE content &kp SPACE>; \
+        }
+
+#define TD_SPC_WRAP_2(td_name, prime_key, macro_name) \
+        td_name: td_name { \
+            compatible = "zmk,behavior-tap-dance"; \
+            #binding-cells = <0>; \
+            tapping-term-ms = <200>; \
+            bindings = <&kp prime_key>, <&macro_name>; \
+        }
+
+// Longer time out for oneshot keys
+&sl {
+    release-after-ms = <2000>;
+};
+&sk {
+    release-after-ms = <2000>;
+};
+// Tune mouse move and scroll
 &mmv {
     acceleration-exponent = <2>;
 };
@@ -22,6 +49,174 @@
 };
 
 / {
+    macros {
+        vi_w: vi_w {
+            label = "VIM_SAVE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp ESC &kp COLON &kp W &kp ENTER>
+                ;
+        };
+        vi_e: vi_e {
+            label = "VIM_RELOADE_BUFFER";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp ESC &kp COLON &kp E &kp LS(N1) &kp ENTER>
+                ;
+        };
+        vi_eq: vi_eq {
+            label = "VIM_EQUAL_PANELS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LC(W) &kp EQUAL>
+                ;
+        };
+        tx_c: tx_c {
+            label = "TMUX_COPY_MODE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LC(B) &kp LBKT>
+                ;
+        };
+        tx_p: tx_p {
+            label = "TMUX_PREV_PANE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LC(B) &kp SEMI>
+                ;
+        };
+        tx_y: tx_y {
+            label = "TMUX_PREV_PANE_MAX";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LC(B) &kp Y>
+                ;
+        };
+        tx_v: tx_v {
+            label = "TMUX_PREV_PASTE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LC(B) &kp COLON &kp P &kp A &kp ENTER>
+                ;
+        };
+        hy_p: hy_p {
+            label = "HYPER_P";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LG(LA(LS(LC(P))))>
+                ;
+        };
+        gsc4: gsc4 {
+            label = "MAC_OS_SCREENSHOT_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp LG(LS(LC(N4)))>
+                ;
+        };
+        pri0: pri0 {
+            label = "PRIVATE_KEY_SEQ_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap 
+                    &kp LS(Z) &kp C &kp T &kp D &kp L &kp A &kp M &kp N &kp U 
+                    &kp X &kp D &kp E &kp X &kp D &kp Z &kp O &kp G &kp D &kp M 
+                    &kp Z>
+                ;
+        };
+        pri1: pri1 {
+            label = "PRIVATE_KEY_SEQ_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp BSPC>
+                , <&macro_wait_time 3500>
+                , <&pri0>
+                ;
+        };
+        pri2: pri2 {
+            label = "PRIVATE_KEY_SEQ_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap 
+                    &kp C &kp T &kp D &kp L &kp A &kp M &kp N &kp U 
+                    &kp Z>
+                ;
+        };
+        // Click and copy
+        c2cp: c2cp {
+            label = "DOUBLE_CLICK_CMD_C";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            bindings
+                = <&macro_tap &mkp LCLK &mkp LCLK>
+                , <&macro_wait_time 300>
+                , <&macro_tap &kp LG(C)>
+                ;
+        };
+        c3cp: c3cp {
+            label = "TRIPLE_CLICK_CMD_C";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            bindings
+                = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK>
+                , <&macro_wait_time 300>
+                , <&macro_tap &kp LG(C)>
+                ;
+        };
+
+        SPC_WRAP(spc_eq, &kp EQUAL);
+        SPC_WRAP(spc_mi, &kp MINUS);
+        SPC_WRAP(spc_pl, &kp PLUS);
+        SPC_WRAP(spc_st, &kp STAR);
+        SPC_WRAP(spc_am, &kp AMPS &kp AMPS);
+        SPC_WRAP(spc_pi, &kp PIPE &kp PIPE);
+
+        tri_dqt: tri_dqt {
+            label = "TRIPLE_DOUBLE_QUOTE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            bindings = <&macro_tap &kp DQT &kp DQT &kp DQT>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
