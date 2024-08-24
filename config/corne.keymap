@@ -11,11 +11,11 @@
 
 &mmv {
     acceleration-exponent = <2>;
-}
+};
 &msc {
     time-to-max-speed-ms = <900>;
     acceleration-exponent = <0>;
-}
+};
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
