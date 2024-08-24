@@ -222,7 +222,7 @@
         tdml: tap_dance_toggle_mouse_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <200>;
             bindings = <&mo 3>, <&tog 3>;
         };
 
@@ -290,7 +290,7 @@
             label = "TD_PRIVATE_SEQ_02";
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <200>;
             bindings = <&none>, <&ht_p 0 0>;
         };
         /* Low value
@@ -336,13 +336,13 @@
         tdc3: tap_dance_tri_clicks_copy_and_bootloader {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <200>;
             bindings = <&c3cp>, <&bootloader>;
         };
         tdbl: tap_dance_none_and_bootloader {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <200>;
             bindings = <&none>, <&bootloader>;
         };
     };
