@@ -78,7 +78,7 @@
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
-                = <&macro_tap &kp LC(W) &kp EQUAL>
+                = <&macro_tap &kp ESC &kp LC(W) &kp EQUAL>
                 ;
         };
         tx_c: tx_c {
