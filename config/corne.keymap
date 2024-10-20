@@ -9,6 +9,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 6400
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 2
+
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
 #define SPC_WRAP(macro_name, content) \
@@ -35,14 +38,16 @@
 &sk {
     release-after-ms = <2000>;
 };
-// Tune mouse move and scroll
+ // Tune mouse move and scroll
 &mmv {
-    time-to-max-speed-ms = <1500>;
-    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <1200>;
+    trigger-period-ms = <8>;
+    acceleration-exponent = <2>;
 };
 &msc {
-    time-to-max-speed-ms = <1500>;
-    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <5000>;
+    trigger-period-ms = <24>;
+    acceleration-exponent = <1>;
 };
 
 / {
