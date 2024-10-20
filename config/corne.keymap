@@ -38,7 +38,7 @@
 &sk {
     release-after-ms = <2000>;
 };
- // Tune mouse move and scroll
+// Tune mouse move and scroll
 &mmv {
     time-to-max-speed-ms = <1200>;
     trigger-period-ms = <8>;
