@@ -525,7 +525,7 @@
 &trans     &td_star    &td_dqt       &kp LPAR      &kp RPAR      AS(BSLH)   AS(N7)     AS(N8)     AS(N9)     AS(N0)
 &trans     &td_amps    &td_under     &kp LBKT      &kp RBKT      AS(SQT)    AS(N4)     AS(N5)     AS(N6)     AS(MINUS)
 &trans     &td_pipe    &td_plus      &kp LBRC      &kp RBRC      AS(FSLH)   AS(N1)     AS(N2)     AS(N3)     AS(EQUAL)
-                       &trans        &trans        &tog 1        &mo3     &trans        &none
+                       &trans        &trans        &tog 1        &mo 3     &trans        &none
             >;
         };
 
