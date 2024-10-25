@@ -228,7 +228,19 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo 3>, <&tog 3>;
+            bindings = <&sl 3>, <&tog 3>;
+        };
+        tdl1: tap_dance_toggle_layer_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 1>, <&tog 1>;
+        };
+        tdl2: tap_dance_toggle_layer_2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 2>, <&tog 2>;
         };
 
         as: auto_shift {
@@ -500,10 +512,10 @@
         base {
             display-name = "Base";
             bindings = <
-&kp Q    &kp W         &kp E         &kp R        &kp T       &kp Y        &kp U           &kp I             &kp O           &kp P
-&lt 3 A  &hml LSHFT S  &hml LCTRL D  &hml LALT F  &kp G       &kp H        &hmr RALT J     &hmr RCTRL K      &hmr RSHFT L    &kp SEMI
-&kp Z    &kp X         &kp C         &kp V        &kp B       &kp N        &kp M           &kp COMMA         &kp DOT         &kp GRAVE
-                       &sk LCTRL  &sl 1     &sk LGUI          &td_spc_eq   &sl 2           &none
+&kp Q       &kp W         &kp E         &kp R        &kp T       &kp Y        &kp U           &kp I             &kp O           &kp P
+&hml LALT A &hml LSHFT S  &hml LGUI D   &hml LCTRL F &kp G       &kp H        &hmr RCTRL J    &hmr RGUI K       &hmr RSHFT L    &hmr RALT SEMI
+&kp Z       &kp X         &kp C         &kp V        &kp B       &kp N        &kp M           &kp COMMA         &kp DOT         &kp GRAVE
+                       &none  &td_spc_eq     &tdl1          &tdl2         &tdml      &none
             >;
         };
 
@@ -513,7 +525,7 @@
 &trans     &td_star    &td_dqt       &kp LPAR      &kp RPAR      AS(BSLH)   AS(N7)     AS(N8)     AS(N9)     AS(N0)
 &trans     &td_amps    &td_under     &kp LBKT      &kp RBKT      AS(SQT)    AS(N4)     AS(N5)     AS(N6)     AS(MINUS)
 &trans     &td_pipe    &td_plus      &kp LBRC      &kp RBRC      AS(FSLH)   AS(N1)     AS(N2)     AS(N3)     AS(EQUAL)
-                       &trans        &tog 1        &trans        &trans     &mo 3        &none
+                       &trans        &trans        &tog 1        &mo3     &trans        &none
             >;
         };
 
@@ -523,7 +535,7 @@
 &kp F7  &kp F8   &kp F9        &ht_r 0 0      &none        &kp F10   &kp F11      &kp F12   &none      &none
 &kp F4  &kp F5   &kp F6        &ht_f 0 0      &ht_g 0 0    &kp LEFT  &kp DOWN     &kp UP    &kp RIGHT  &trans
 &kp F1  &kp F2   &kp F3        &ht_v 0 0      &none        &kp HOME  &kp PG_DN    &kp PG_UP &kp END    &none
-                 &trans         &mo 3        &trans        &trans    &tog 2       &none
+                 &trans         &trans        &mo 3        &tog 2   &trans    &none
             >;
         };
 
@@ -533,7 +545,7 @@
 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR     &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none              &tdp0
 &tdc3         &none         &none         &mkp LCLK     &mkp RCLK      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT    &tdbl
 &c2cp         &kp LG(X)     &kp LG(C)     &kp LG(V)     &trans         &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP   &msc MOVE_RIGHT    &none
-                       &none      &mkp LCLK  &mkp RCLK      &none  &none  &none
+                       &none      &mkp RCLK  &mkp LCLK     &none  &tog 3  &none
             >;
         };
     };
