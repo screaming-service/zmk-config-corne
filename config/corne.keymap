@@ -350,17 +350,31 @@
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32 /*combinition*/ 16 17 18 33>;    // Left half
         };
 
-        tdc3: tap_dance_tri_clicks_copy_and_bootloader {
+        mokp: hold_mo_tap_key {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        tdab: tap_dance_alt_and_bootloader {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&c3cp>, <&bootloader>;
+            bindings = <&kp LALT>, <&bootloader>;
         };
         tdbl: tap_dance_none_and_bootloader {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&none>, <&bootloader>;
+        };
+        bt4c: tap_dance_bt_4_clr {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&bt BT_SEL 4>, <&bt BT_CLR>;
         };
     };
 
@@ -514,7 +528,7 @@
             bindings = <
 &kp Q       &kp W         &kp E         &kp R        &kp T       &kp Y        &kp U           &kp I             &kp O           &kp P
 &hml LALT A &hml LSHFT S  &hml LGUI D   &hml LCTRL F &kp G       &kp H        &hmr RCTRL J    &hmr RGUI K       &hmr RSHFT L    &hmr RALT SEMI
-&kp Z       &kp X         &kp C         &kp V        &kp B       &kp N        &kp M           &kp COMMA         &kp DOT         &kp GRAVE
+&kp Z       &mokp 3 X     &kp C         &kp V        &kp B       &kp N        &kp M           &kp COMMA         &kp DOT         &kp GRAVE
                        &none  &td_spc_eq     &tdl1          &tdl2         &tdml      &none
             >;
         };
@@ -542,9 +556,9 @@
         mouse {
             display-name = "Mouse";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR     &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none              &tdp0
-&tdc3         &none         &none         &mkp LCLK     &mkp RCLK      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT    &tdbl
-&c2cp         &kp LG(X)     &kp LG(C)     &kp LG(V)     &trans         &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP   &msc MOVE_RIGHT    &none
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt4c          &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none              &tdp0
+&tdab         &kp LSHFT     &kp LGUI      &kp LCTRL     &mkp RCLK      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT    &tdbl
+&c2cp         &kp LG(X)     &kp LG(C)     &kp LG(V)     &c3cp          &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP   &msc MOVE_RIGHT    &none
                        &none      &mkp RCLK  &mkp LCLK     &none  &tog 3  &none
             >;
         };
