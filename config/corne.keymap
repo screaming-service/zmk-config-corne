@@ -518,6 +518,62 @@
             key-positions = <10 19>; // A, ;
             bindings = <&kp LA(BSPC)>;
         };
+        // Oneshot mods        
+        combo_gui_shift {
+            timeout-ms = <25>;
+            key-positions = <26 11>; // M, S
+            bindings = <&sk LG(LSHFT)>;
+        };
+        combo_gui_alt {
+            timeout-ms = <40>;
+            key-positions = <26 13>; // M, F
+            bindings = <&sk LG(LALT)>;
+        };
+        combo_gui_ctrl {
+            timeout-ms = <40>;
+            key-positions = <26 22>; // M, C
+            bindings = <&sk LG(LCTRL)>;
+        };
+        combo_gui_shift_alt {
+            timeout-ms = <30>;
+            key-positions = <26 12>; // M, D
+            bindings = <&sk LG(LS(LALT))>;
+        };
+        combo_gui_shift_ctrl {
+            timeout-ms = <40>;
+            key-positions = <26 21>; // M, X
+            bindings = <&sk LG(LS(LCTRL))>;
+        };
+        combo_gui_alt_ctrl {
+            timeout-ms = <40>;
+            key-positions = <26 23>; // M, V
+            bindings = <&sk LG(LA(LCTRL))>;
+        };
+        combo_hyper {
+            timeout-ms = <40>;
+            key-positions = <26 1>; // M, W
+            bindings = <&sk LG(LS(LA(LCTRL)))>;
+        };
+        combo_meh {
+            timeout-ms = <40>;
+            key-positions = <23 15>; // V, H
+            bindings = <&sk LS(LA(LCTRL))>;
+        };
+        combo_alt_ctrl {
+            timeout-ms = <40>;
+            key-positions = <23 16>; // V, J
+            bindings = <&sk LA(LCTRL)>;
+        };
+        combo_alt_shift {
+            timeout-ms = <40>;
+            key-positions = <23 17>; // V, K
+            bindings = <&sk LA(LSHFT)>;
+        };
+        combo_shift_ctrl {
+            timeout-ms = <40>;
+            key-positions = <23 18>; // V, L
+            bindings = <&sk LC(LSHFT)>;
+        };
     };
 
     keymap {
